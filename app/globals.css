@@ -1,0 +1,276 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  .bg-gradient-radial {
+    background: radial-gradient(circle, var(--tw-gradient-stops));
+  }
+}
+
+/* hover effects for cards */
+.hover-card {
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.hover-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(147, 197, 253, 0.3), 0 0 20px rgba(147, 197, 253, 0.2);
+  border-color: rgba(147, 197, 253, 0.4);
+}
+
+/* background spotlight animations - took forever to get these right lol */
+@keyframes spotlight-1 {
+  0% {
+    transform: translate(-200px, -200px);
+  }
+  25% {
+    transform: translate(calc(100vw - 200px), -100px);
+  }
+  50% {
+    transform: translate(calc(100vw - 100px), calc(100vh - 200px));
+  }
+  75% {
+    transform: translate(-100px, calc(100vh - 100px));
+  }
+  100% {
+    transform: translate(-200px, -200px);
+  }
+}
+
+@keyframes spotlight-2 {
+  0% {
+    transform: translate(calc(100vw + 100px), -100px);
+  }
+  50% {
+    transform: translate(-200px, calc(50vh));
+  }
+  100% {
+    transform: translate(calc(100vw + 100px), -100px);
+  }
+}
+
+@keyframes spotlight-3 {
+  0% {
+    transform: translate(-150px, calc(30vh));
+  }
+  50% {
+    transform: translate(calc(100vw - 50px), calc(70vh));
+  }
+  100% {
+    transform: translate(-150px, calc(30vh));
+  }
+}
+
+@keyframes spotlight-4 {
+  0% {
+    transform: translate(calc(50vw - 200px), calc(100vh + 100px));
+  }
+  33% {
+    transform: translate(calc(20vw), calc(20vh));
+  }
+  66% {
+    transform: translate(calc(80vw - 200px), calc(60vh));
+  }
+  100% {
+    transform: translate(calc(50vw - 200px), calc(100vh + 100px));
+  }
+}
+
+@keyframes spotlight-5 {
+  0% {
+    transform: translate(calc(30vw), -100px);
+  }
+  25% {
+    transform: translate(calc(70vw), calc(30vh));
+  }
+  50% {
+    transform: translate(calc(20vw), calc(70vh));
+  }
+  75% {
+    transform: translate(calc(80vw), calc(40vh));
+  }
+  100% {
+    transform: translate(calc(30vw), -100px);
+  }
+}
+
+@keyframes spotlight-6 {
+  0% {
+    transform: translate(-100px, calc(60vh));
+  }
+  33% {
+    transform: translate(calc(40vw), calc(20vh));
+  }
+  66% {
+    transform: translate(calc(80vw), calc(80vh));
+  }
+  100% {
+    transform: translate(-100px, calc(60vh));
+  }
+}
+
+.animate-spotlight-1 {
+  animation: spotlight-1 12s ease-in-out infinite;
+}
+
+.animate-spotlight-2 {
+  animation: spotlight-2 10s ease-in-out infinite 1s;
+}
+
+.animate-spotlight-3 {
+  animation: spotlight-3 8s ease-in-out infinite 2s;
+}
+
+.animate-spotlight-4 {
+  animation: spotlight-4 15s ease-in-out infinite 0.5s;
+}
+
+.animate-spotlight-5 {
+  animation: spotlight-5 7s ease-in-out infinite 1.5s;
+}
+
+.animate-spotlight-6 {
+  animation: spotlight-6 9s ease-in-out infinite 0.7s;
+}
+
+/* purple spotlight animations */
+@keyframes purple-spotlight-1 {
+  0% {
+    transform: translate(calc(100vw + 150px), calc(50vh));
+  }
+  33% {
+    transform: translate(calc(10vw), calc(10vh));
+  }
+  66% {
+    transform: translate(calc(60vw), calc(80vh));
+  }
+  100% {
+    transform: translate(calc(100vw + 150px), calc(50vh));
+  }
+}
+
+@keyframes purple-spotlight-2 {
+  0% {
+    transform: translate(-100px, calc(80vh));
+  }
+  50% {
+    transform: translate(calc(90vw), calc(20vh));
+  }
+  100% {
+    transform: translate(-100px, calc(80vh));
+  }
+}
+
+@keyframes purple-spotlight-3 {
+  0% {
+    transform: translate(calc(40vw), calc(100vh + 100px));
+  }
+  25% {
+    transform: translate(calc(80vw), calc(40vh));
+  }
+  50% {
+    transform: translate(calc(15vw), calc(15vh));
+  }
+  75% {
+    transform: translate(calc(70vw), calc(70vh));
+  }
+  100% {
+    transform: translate(calc(40vw), calc(100vh + 100px));
+  }
+}
+
+@keyframes purple-spotlight-4 {
+  0% {
+    transform: translate(calc(20vw), -150px);
+  }
+  50% {
+    transform: translate(calc(75vw), calc(60vh));
+  }
+  100% {
+    transform: translate(calc(20vw), -150px);
+  }
+}
+
+.animate-purple-spotlight-1 {
+  animation: purple-spotlight-1 14s ease-in-out infinite 2s;
+}
+
+.animate-purple-spotlight-2 {
+  animation: purple-spotlight-2 11s ease-in-out infinite 3s;
+}
+
+.animate-purple-spotlight-3 {
+  animation: purple-spotlight-3 9s ease-in-out infinite 1s;
+}
+
+.animate-purple-spotlight-4 {
+  animation: purple-spotlight-4 13s ease-in-out infinite 4s;
+}
